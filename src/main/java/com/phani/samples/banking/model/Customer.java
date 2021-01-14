@@ -43,7 +43,7 @@ public class Customer {
                   referencedColumnName = "id"
           )
   )
-  @OneToMany(fetch=FetchType.LAZY)
+  @ManyToMany(fetch=FetchType.LAZY)
   private List<Account> accounts = new ArrayList<>();
 
   public Customer() {

@@ -7,3 +7,8 @@ spring:
     url: "jdbc:postgresql://localhost:5432/banking"
     username: postgres #In production this user should not be a super user
     password: mysecretpassword
+
+#Cron set to every 10 secs for demo purposes
+interest:
+  calculator:
+    schedule: "*/10 * * * * *"

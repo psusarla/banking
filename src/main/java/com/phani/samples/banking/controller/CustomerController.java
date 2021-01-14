@@ -1,6 +1,7 @@
 package com.phani.samples.banking.controller;
 
 import com.phani.samples.banking.model.Customer;
+import com.phani.samples.banking.request.KycRequest;
 import com.phani.samples.banking.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +32,13 @@ public class CustomerController {
     customerService.updateCustomer(id, customer);
   }
 
+  @PutMapping("/{id}/kyc")
+  public void updateKYC(@PathVariable long id, @RequestBody KycRequest kycRequest) {
+    customerService.updateKyc(id, kycRequest);
+  }
+
   @PutMapping("/{id}/account/{accountId}")
-  public void updateCustomer(@PathVariable long id, @PathVariable long accountId) {
+  public void linkAccount(@PathVariable long id, @PathVariable long accountId) {
     customerService.linkAccount(id, accountId);
   }
 

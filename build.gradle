@@ -24,6 +24,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	//pdf generation
+	implementation 'com.itextpdf:itextpdf:5.5.10'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

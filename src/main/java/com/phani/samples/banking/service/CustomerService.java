@@ -4,6 +4,7 @@ import com.phani.samples.banking.model.Account;
 import com.phani.samples.banking.model.Customer;
 import com.phani.samples.banking.repository.AccountRepository;
 import com.phani.samples.banking.repository.CustomerRepository;
+import com.phani.samples.banking.request.KycRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -44,6 +45,16 @@ public class CustomerService {
 
   public void deleteCustomer(long id) {
     customerRepository.deleteById(id);
+  }
+
+  public Customer updateKyc(long id, KycRequest kycRequest) {
+    return customerRepository.findById(id)
+            .map(cus -> {
+              cus.setKycPhone(kycRequest.getKycPhone());
+              cus.setKycProofOfAddress(kycRequest.getKycProofOfAddress());
+              return customerRepository.save(cus);
+            })
+            .orElseThrow(() -> new RuntimeException("Customer " + id + " not found"));
   }
 
   public Customer updateCustomer(long id, Customer customer) {
