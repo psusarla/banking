@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.assertj.core.api.Assertions.fail;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Transactional
@@ -36,5 +37,34 @@ public class AccountServiceTests {
     assertThat(updatedAccount2.getCurrentBalance()).isEqualTo(210);
   }
 
-  //TODO - write negative tests
+  @Test
+  public void transferBalanceInvalidAccount() {
+    try {
+      accountService.transferBalance(1000, 2000, 10);
+      fail("Invalid account not detected");
+    } catch (Exception e) {
+      assertThat(e.getMessage()).contains("Invalid account");
+    }
+  }
+
+  @Test
+  public void insufficientAmount() {
+    Account account1 = new Account();
+    account1.setCurrentBalance(100);
+    account1.setAccountNumber("12345");
+    accountService.addAccount(account1);
+
+    Account account2 = new Account();
+    account2.setCurrentBalance(100);
+    account2.setAccountNumber("35353");
+    accountService.addAccount(account2);
+
+    try {
+      accountService.transferBalance(account1.getId(), account2.getId(), 1000);
+      fail("Invalid account not detected");
+    } catch (Exception e) {
+      assertThat(e.getMessage()).contains("Insufficient Amount");
+    }
+  }
+
 }

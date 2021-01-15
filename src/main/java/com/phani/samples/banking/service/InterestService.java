@@ -1,27 +1,14 @@
 package com.phani.samples.banking.service;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.phani.samples.banking.model.Account;
 import com.phani.samples.banking.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 public class InterestService {
-
-  //TODO - make variables private everywhere
-  //TODO - Change to runtime exceptions everywhere
 
   @Autowired
   private AccountRepository accountRepository;

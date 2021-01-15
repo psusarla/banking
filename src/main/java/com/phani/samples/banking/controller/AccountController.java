@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
@@ -17,13 +19,11 @@ import java.util.List;
 @RequestMapping("/account")
 public class AccountController {
 
-  //TODO validation of input fields
+  @Autowired
+  private AccountService accountService;
 
   @Autowired
-  AccountService accountService;
-
-  @Autowired
-  StatementService statementService;
+  private StatementService statementService;
 
   @GetMapping
   public List<Account> getAllAccounts() {
@@ -31,14 +31,14 @@ public class AccountController {
   }
 
   @GetMapping("/{id}")
-  public Account getAccount(long id) {
+  public Account getAccount(Long id) {
     return accountService.getAccount(id);
   }
 
-  //TODO - pdf looks ugly, I apologize for that
+  //TODO - Pdf looks ugly, I apologize for that
   @GetMapping("/{id}/statement")
-  public ResponseEntity<byte[]> getStatement(Long id) throws Exception { //TODO - should not throw exception
-    ByteArrayInputStream byteArrayInputStream =  statementService.generateTablePdf();
+  public ResponseEntity<byte[]> getStatement(@PathVariable Long id) {
+    ByteArrayInputStream byteArrayInputStream =  statementService.generateStatement(id);
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_PDF);
     String filename = "statement.pdf";
@@ -49,17 +49,23 @@ public class AccountController {
   }
 
   @PutMapping("/{id}")
-  public void updateAccount(@PathVariable long id, @RequestBody Account account) {
+  public void updateAccount(@PathVariable Long id, @RequestBody Account account) {
     accountService.updateAccount(id, account);
   }
 
+  //TODO - @Valid should be added to all request objects. Did not do this at other places in the interest of time.
   @PostMapping
-  public void addAccount(@RequestBody Account account) {
+  public void addAccount(@Valid @RequestBody Account account) {
     accountService.addAccount(account);
   }
 
   @DeleteMapping("/{id}")
-  public void deleteAccount(@PathVariable long id) {
+  public void deleteAccount(@PathVariable Long id) {
     accountService.deleteAccount(id);
+  }
+
+  @PutMapping("/transfer/from/{fromAccountId}/to/{toAccountId}") //TODO
+  public void transferBalance(@PathVariable Long fromAccountId,@PathVariable Long toAccountId, @RequestParam @NotNull Double amount) {
+    accountService.transferBalance(fromAccountId, toAccountId, amount);
   }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Getter @Setter
@@ -19,6 +20,8 @@ public class Account {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  //TODO - We will be the constraints to fields as necessary
+  @NotBlank(message = "Account Number cannot be empty")
   @Column
   private String accountNumber;
 

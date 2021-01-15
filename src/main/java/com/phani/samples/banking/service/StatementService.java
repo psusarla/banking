@@ -4,33 +4,23 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.phani.samples.banking.model.Account;
+import com.phani.samples.banking.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
 public class StatementService {
-
-  public ByteArrayInputStream generateTablePdf() throws Exception {
-    ByteArrayOutputStream out = new ByteArrayOutputStream();
-    Document document = new Document();
-    PdfWriter.getInstance(document,out);
-
-    document.open();
-
-    PdfPTable table = new PdfPTable(3);
-    addTableHeader(table);
-    addRows(table);
-
-    document.add(table);
-    document.close();
-    return new ByteArrayInputStream(out.toByteArray());
-  }
+  @Autowired
+  private AccountRepository accountRepository;
 
   private void addTableHeader(PdfPTable table) {
-    Stream.of("column header 1", "column header 2", "column header 3")
+    Stream.of("Beginning Balance", "Current Balance", "Interest Earned") //TODO - save interest earned in InterestService
             .forEach(columnTitle -> {
               PdfPCell header = new PdfPCell();
               header.setBackgroundColor(BaseColor.LIGHT_GRAY);
@@ -40,11 +30,30 @@ public class StatementService {
             });
   }
 
-
-  private void addRows(PdfPTable table) {
-    table.addCell("row 1, col 1");
-    table.addCell("row 1, col 2");
-    table.addCell("row 1, col 3");
+  private void addRows(PdfPTable table, Account account) {
+    table.addCell(Double.toString(account.getBeginningBalance()));
+    table.addCell(Double.toString(account.getCurrentBalance()));
+    table.addCell(Double.toString(account.getInterestEarned()));
   }
 
+  public ByteArrayInputStream generateStatement(Long id) {
+    Optional<Account> accountOptional = accountRepository.findById(id);
+    Account account = accountOptional.get();
+    try {
+      ByteArrayOutputStream out = new ByteArrayOutputStream();
+      Document document = new Document();
+      PdfWriter.getInstance(document, out);
+      document.open();
+      document.add(new Paragraph("Account: " + account.getAccountNumber() + "\n\n"));
+      PdfPTable table = new PdfPTable(3);
+      addTableHeader(table);
+      addRows(table, account);
+
+      document.add(table);
+      document.close();
+      return new ByteArrayInputStream(out.toByteArray());
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
 }
