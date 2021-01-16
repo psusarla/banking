@@ -80,8 +80,13 @@ Remove ```Update Password``` from ```Required User Actions``` and click on save
 * Set HTTP header: ```Authorization: bearer {access_token from above}```
 * Make ```Get all customers``` api call
 
-## Functionality not completely done
-I ran into errors with logout functionality (TODO) 
+## Known Issues
+### Join table error
+When you the run the Spring Boot App first time, you will run into below error:
+```Caused by: org.postgresql.util.PSQLException: ERROR: relation "customer_accounts" does not exist```
+This error will disappear from second time onward
+### Logout functionality
+TODO 
  
 ## Wish list
 I did not have time to add the following. I added TODO comments in the code for it
