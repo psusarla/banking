@@ -44,7 +44,9 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     super.configure(http);
-    http.csrf().disable().authorizeRequests()
+    http
+            .csrf().disable() //CSRF should not be disabled in production
+            .authorizeRequests()
             .antMatchers("/*")
             .hasRole("employee")
 

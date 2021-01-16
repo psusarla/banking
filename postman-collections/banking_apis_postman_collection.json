@@ -19,8 +19,9 @@
 					{
 						"key": "Authorization",
 						"name": "Content-Type",
-						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZnNTaGM1UEhsMFVtQjUxQkdoMlA4Y09JRzJJMFc4am0tb21Iekt3YV9nIn0.eyJleHAiOjE2MTA3NzExNjQsImlhdCI6MTYxMDc3MDg2NCwianRpIjoiM2NmZWQ5ZTAtOWMwOS00MzE2LTkyNDgtNDJmZmIwOTlkYzY3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL2JhbmtpbmciLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYTc3ZTAwZDgtODdjMi00NGI5LTljMzUtNDgwNzFlNjMyNzUyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibG9naW4tYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjFjM2E4Y2Y5LWY0OTEtNDY1NC1iYjY4LTdmZWY4YjQxMzFmZiIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImVtcGxveWVlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwc3VzYXJsYSJ9.Kg4pM6LXQI1qrAgPBTAofyN1HzeJQ1Qh1_kGA6do_NUdIPvAEQSKdc1skav7SPmT4e8I0bTfGrf53Mc3ej1Zj7r4JM8BECNh8F3hHNfW3wyB6WnGxdRm4CQYIQJPZwOmkSTYA2Zwv0PvdE4nTMCpuz6HZ007h6_ls-nMjv7Bx3lrnEnU_qJkFGleGhIb2ItxW7I27dbyxfL-kLvMOTvFh6qfNpZEgrWb3z3tk61_70HYqStUlxXlh_e5jHdaf5qF5rEedcCy6bUasgo-QTOa67k1TGA0mzaPOGkym9ns6xK7c3nZHOX_dVvWWGVz_zIr2sYyCah0k00dEndSz6vbEQ",
-						"type": "text"
+						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwak9uenlFNElXS3JhZThvQ1FhdU9QelNiS2w1bHhuRy1VS1NaWU40aFhVIn0.eyJleHAiOjE2MTA4MTA4ODAsImlhdCI6MTYxMDgxMDU4MCwianRpIjoiYmZlNThmNzQtNWU1ZC00ZmE3LWJmMDktYmUyZTFiNjZiM2MzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL2JhbmtpbmciLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYTgwY2NhMTctYTcyMi00ZWIzLWEzN2ItYTQ3NTIxMmM3YTVmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibG9naW4tYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjVjY2Y3ZTkwLTQyNjYtNDg5Zi1hOWFjLTM2NTA3YThjNjM3NCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImVtcGxveWVlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwc3VzYXJsYSJ9.PIKqKUhkxlzrIZRQYmY-lOkDOAw5hfCEPPb3EWMOvSbn_nFyHhCLnTlVDsMCfJFnSIM-o0ZdSrj5UsDn3enpXxtHjXvPnzJp6qJGnh1H9gBWo0sm2cJlMo2hzN9ofNDMWl5TzdcHI_jw3Q8m_XRFCwyg8owMa9vJwTf0LT2S3euiME3odXbA8mmfsor-zoNMcpYB94kKZ6hyDGBY_UCWYQAlhiOSotfcM7jCmhBhRZIv6cGBxdU77j5_eLKIasBUkJL9hBSurfXkeNjhmddN2T9W1LeO52sjeHAqsIYup2SqUZ9kjKfqImSPvFrYSq53D0MDC9P7LSLL8A97YYusvg",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -61,29 +62,17 @@
 			"name": "Get all accounts",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "amar",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "password",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/account",
+					"raw": "http://localhost:8081/account",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"account"
 					]
@@ -112,12 +101,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/account",
+					"raw": "http://localhost:8081/account",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"account"
 					]
@@ -140,12 +129,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/customer",
+					"raw": "http://localhost:8081/customer",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"customer"
 					]
@@ -159,12 +148,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/customer/1",
+					"raw": "http://localhost:8081/customer/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"customer",
 						"1"
@@ -179,15 +168,119 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/account/2",
+					"raw": "http://localhost:8081/account/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"account",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balance Transfer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/account/transfer/from/1/to/2?amount=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"account",
+						"transfer",
+						"from",
+						"1",
+						"to",
+						"2"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update customer's KYC",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"kycPhone\": \"7033097035\",\n        \"kycProofOfAddress\": \"30 Indian pond\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/1/kyc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"1",
+						"kyc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get statement for an account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/account/1/statement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"account",
+						"1",
+						"statement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Link an account to customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/customer/link/1/account/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"link",
+						"1",
+						"account",
+						"1"
 					]
 				}
 			},

@@ -17,8 +17,7 @@ Ideally the architecture should be split as below. I have built one application 
 * Keyclock should be backed with an identity provider such as ADFS. 
 
 ## APIs
-Please refer to postman collection for samples
-
+Please refer to postman collection for sample requests
 
 #### GET /customer
 Gets all customers
@@ -36,7 +35,7 @@ Gets an account
 Updates an account
 #### POST /account
 Creates an account
-### /account/transfer/from/{fromAccountId}/to/{toAccountId}?amount={amount}")
+### /account/transfer/from/{fromAccountId}/to/{toAccountId}?amount={amount}
 Transfers Amount
 In case of failures, client should show the current balances to user and ask if it can be retried
 ### GET /account/{accountId}/statement
@@ -77,6 +76,7 @@ Customer Accounts tables maps Customer(s) to Account(s)
 | 1565 | 24383 |
 
 ##Running application locally
+Clone the git repo
 
 ### Step 1 - Run the services
 ```docker-compose.yml up```
