@@ -42,7 +42,7 @@ Customer Accounts tables maps Customer(s) to Account(s)
 
 This starts keycloak (and it's MySQL database) and a postgres database used by the Banking apis
 
-Keycloak container needs vulnes, you may have to setup your local docker host to allow this.
+Keycloak container needs volumes, you may have to setup your local docker host to allow this.
 ### Step 2 -  Run the application
 ```.gradlew clean bR```
 
@@ -52,14 +52,16 @@ Application runs on post 8081
 
 To run the application in dev mode, run with 'dev' profile (TODO)
 ### Step 3 Setup Keycloak
+Login to keycloak username: admin, password: Pa55w0rd
 By default Keycloak will have
 * banking realm 
-* login app
+* login app (under clients)
 #### Step 3.1 - Add employees to Keycloak
+Make sure you are under Banking realm, click on ```Add User```
 ![add employee](git-images/add_user.png)
 Set username and click on save
 #### Step 3.2 - Set password for employee
-Set password, keep the password for later usr
+Set password, keep the password for later use
 ![set password](git-images/set_password.png)
 #### Step 3.3 - Set user with role = employee
 Add ```employee``` to assigned role and click on save. After save, it should look like below:
@@ -67,6 +69,11 @@ Add ```employee``` to assigned role and click on save. After save, it should loo
 
 ### Step 4 Making api call(s)
 #### Step 4.1 - Create token
+Go to keycloak and click on ```Regenerate Secret```
+![regenerate password](git-images/regenerate_secret.png)
+Copy the secret for below step
+![Required User Actions](git-images/remove_update_passw.png)
+Remove ```Update Password``` from ```Required User Actions``` and click on save
 * Use ```Get token for user``` from postman (make sure you have the right client_secret as in keycloak)
 * Copy the ```access_token``` field
 #### Step 4.2 - Make api call

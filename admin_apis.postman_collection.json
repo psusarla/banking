@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "bfcf101d-cdba-45e5-872a-7cbcc7848a42",
+		"name": "Admin apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Admin Access Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Pa55w0rd",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNWHdaU2o4V0xIWnZLZTVhcjFjM3N6aVpZYXZzRkpsR3lIVlphbk1ndnVNIn0.eyJleHAiOjE2MTA2ODE5NTgsImlhdCI6MTYxMDY4MTg5OCwianRpIjoiMGYzZTU1MWUtNWM5Ny00ZDhmLWFhNTUtZjlmMmM3Y2E3M2I5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsInN1YiI6IjhkNTUxZWE1LTRmOTMtNGEzNy04OWRhLTg3YTJkMGU0MGJmZCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWNsaSIsInNlc3Npb25fc3RhdGUiOiI5NWVlMjRhYi1kOWVlLTRjZWItOWM0ZS00MjBmYjllYmQ0ODEiLCJhY3IiOiIxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.X2_k-HA8B4pE-oJPctPEECmtFUXXC7CGSHY_hjLEHDeFk5YXTPRkA463WqX9g4_sqaD_QlKXU7C2JpZJ7LmMsZGd30UTNVbkc6GQN-lHoblY3WR1BBmD7MXVInsgudK4GpZPRADUbsKcK5Wz99HLAMO3E77WIl93-94HtFVIgwUQbIHOJfM0ITcMSgvw-kIL8RryLHtNSkklv2AbOXSqgoFQP_QoBYezOz5AFM4ZHaIqobNjWShboKP2WNNPHeUHt4t1bAfDwbkZRUDyLP4T7M79oHXY-oLtQOblHnvyhLhM16oaDEDCRL4jN2WGwaYv4Iz9_WR6FNs_mSuC1QYWFA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"psusarla\",\n    \"firstName\": \"Phani\",\n    \"lastName\": \"Susarla\",\n    \"email\": \"phani.susarla@gmail.com\",\n    \"enabled\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/banking/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"banking",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset User Password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNWHdaU2o4V0xIWnZLZTVhcjFjM3N6aVpZYXZzRkpsR3lIVlphbk1ndnVNIn0.eyJleHAiOjE2MTA2ODIwNDcsImlhdCI6MTYxMDY4MTk4NywianRpIjoiMGZjNjhkY2MtNDY3YS00MTI4LTgyYjgtMzhhY2UzMTMxZDk3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsInN1YiI6IjhkNTUxZWE1LTRmOTMtNGEzNy04OWRhLTg3YTJkMGU0MGJmZCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWNsaSIsInNlc3Npb25fc3RhdGUiOiI0NzNkYTFkNy05ZTMzLTRkMDMtYTYwZC00MGE5YmFmYmQzNDAiLCJhY3IiOiIxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.OUdz6arsfb-taaDOmILC950uinHZJ2XecAD4P6Y8Stot668zADc_5ePxMydNB7RLFIpQ7Uc9XE10c7kheUTJMRP0l2bVEeaOuTWc7H8T-g5oheD3-ifrGTaJzBy5eap1IQKgTV7SiC8wMjFeE8kkmH0MORZ66I9WZKWEuK78YAZ3YSHnWfRBTfn0Uq1DAQPI_1hFuRammh8uiM-xPRj_dX71H59cQcNHIMaZAHAODpiJNfgxriVilTcyHf4IEttVI2yZmxeB-OiKdIVnr7tdGjrX-G_Y8ImK7mqHbLNdvChervQOqDTrhJ4CX4blsqlLyyEV_eOgSjDDUbHLEoPHMg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"password\",\n    \"temporary\": false,\n    \"value\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/banking/users/2bae4372-c849-498a-a007-ea6bd709a9b1/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"banking",
+						"users",
+						"2bae4372-c849-498a-a007-ea6bd709a9b1",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token for user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsic2FtcGxlLW9hdXRoIl0sInNjb3BlIjpbInJlYmVsLWFsbGlhbmNlLnJlYWQiLCJyZWJlbC1hbGxpYW5jZS53cml0ZSJdLCJleHAiOjE1ODcwNTI0NTgsImp0aSI6ImE1MGVlMTRkLTI4YzItNDUyOS1hNzY1LTBjZmRiOWYxMmE2MSIsImNsaWVudF9pZCI6ImFjY291bnQifQ.Rxafm5bdvAo9punVJ-9oMgHTmVpKJ_vh9zdDrDDCepWo_eow1_rRau9K4VoFQbP7m8aRCCaE_urypuWEPuECYEVx5u-jPbGEjTEI1htcEj8vgw2b7qLOcndnXPWJ6-_ZLqlgz8skrIcEIFL3dnoX1sqKl5yLSB6fgB3lOfFd8wAJC6kaHxgncU7gNmJi_Vcd9RPzwnrJQRQS91RNJqBIv5CJoa5rMFuH0NY-AGe9rvGGvJEpjxbxqg9g54We-wxpzqJKJhXXyMKH-K3ivpQJCksfQD1yRp_ALfei-L07XvY271SSZURLwdP0FsouuHwtPo6pj1uG3a6hRHRqOImTpA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_secret",
+							"value": "8be6cb5b-79c5-401b-9d9a-ddef46890e25",
+							"description": "Please get the client secret from keycloak. Sorry for the inconveience.",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "login-app",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "employee",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "psusarla",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/auth/realms/banking/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"auth",
+						"realms",
+						"banking",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
