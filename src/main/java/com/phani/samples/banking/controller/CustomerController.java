@@ -5,6 +5,9 @@ import com.phani.samples.banking.request.KycRequest;
 import com.phani.samples.banking.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -47,5 +50,11 @@ public class CustomerController {
   @DeleteMapping("/{id}")
   public void deleteCustomer(@PathVariable Long id) {
     customerService.deleteCustomer(id);
+  }
+
+  @GetMapping(path = "/logout")
+  public String logout(HttpServletRequest request) throws ServletException {
+    request.logout();
+    return "redirect:/admin";
   }
 }
