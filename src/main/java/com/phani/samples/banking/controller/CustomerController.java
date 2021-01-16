@@ -23,7 +23,7 @@ public class CustomerController {
   }
 
   @GetMapping("/{id}")
-  public Customer getCustomer(Long id) {
+  public Customer getCustomer(@PathVariable Long id) {
     return customerService.getCustomer(id);
   }
 
@@ -37,7 +37,7 @@ public class CustomerController {
     customerService.updateKyc(id, kycRequest);
   }
 
-  @PutMapping("/{id}/account/{accountId}")
+  @PutMapping("/link/{id}/account/{accountId}")
   public void linkAccount(@PathVariable Long id, @PathVariable long accountId) {
     customerService.linkAccount(id, accountId);
   }

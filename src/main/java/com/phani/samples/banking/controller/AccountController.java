@@ -9,9 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class AccountController {
   }
 
   @GetMapping("/{id}")
-  public Account getAccount(Long id) {
+  public Account getAccount(@PathVariable Long id) {
     return accountService.getAccount(id);
   }
 
@@ -64,8 +64,12 @@ public class AccountController {
     accountService.deleteAccount(id);
   }
 
-  @PutMapping("/transfer/from/{fromAccountId}/to/{toAccountId}") //TODO
-  public void transferBalance(@PathVariable Long fromAccountId,@PathVariable Long toAccountId, @RequestParam @NotNull Double amount) {
+  @PutMapping("/transfer/from/{fromAccountId}/to/{toAccountId}")
+  public void transferBalance(@PathVariable Long fromAccountId,@PathVariable Long toAccountId,
+                               @RequestParam double amount) {
+    if (amount <= 0) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Amount should be positive");
+    }
     accountService.transferBalance(fromAccountId, toAccountId, amount);
   }
 }

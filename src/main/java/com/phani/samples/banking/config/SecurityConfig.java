@@ -16,7 +16,6 @@ import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
-import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableWebSecurity
@@ -59,6 +58,4 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
   protected KeycloakLogoutHandler keycloakLogoutHandler() throws Exception{
     return super.keycloakLogoutHandler();
   }
-
-
 }

@@ -1,9 +1,7 @@
 package com.phani.samples.banking.service;
 
 import com.phani.samples.banking.model.Account;
-import com.phani.samples.banking.model.Customer;
 import com.phani.samples.banking.repository.AccountRepository;
-import com.phani.samples.banking.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -90,7 +88,5 @@ public class AccountService {
       double toAccountBalance = toAccount.getCurrentBalance();
       toAccount.setCurrentBalance(toAccountBalance + amount);
       accountRepository.save(toAccount);
-
-      //entityManager unlock happens automatically at the end of transaction
   }
 }
